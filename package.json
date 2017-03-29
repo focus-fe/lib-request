@@ -1,0 +1,12 @@
+{
+  "name": "lib-request",
+  "version": "0.0.15",
+  "description": "",
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [],
+  "author": {
+    "name": "lx"
+  },
+  "license": "2016-2016"
+}

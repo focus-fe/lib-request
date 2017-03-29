@@ -1,0 +1,13 @@
+var fs = require('fs');
+var path = require('path');
+var base = path.dirname(path.dirname(__dirname));
+
+try {
+    var tmpl = fs.readFileSync(`${base}/src/crossdomain/crossdomain.tmpl`, 'utf8');
+    var crossdomain = fs.readFileSync(`${base}/dist/crossdomain.js`, 'utf8');
+    var content = tmpl.replace('[[code]]', [ crossdomain ].join('\n\n'));
+
+    fs.writeFileSync(`${base}/dist/crossdomain.html`, content, 'utf8');
+} catch (e) {
+    console.log(e);
+}

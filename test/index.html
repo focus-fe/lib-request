@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>demo</title>
+</head>
+<body>
+
+
+<script src="../dist/index.js"></script>
+
+
+<button onclick="fnGet()">GET</button>
+<script>
+    var fnGet = function () {
+        ajax({
+            url: './b.json?a=1',
+            data: { b: 2 },
+            complete: function (data) {
+                console.log(data);
+            }
+        });
+    };
+</script>
+<hr />
+
+
+<button onclick="fnGetA()">CROSS GET</button>
+<script>
+    var fnGetA = function () {
+        ajax({
+            url: 'http://api-zhibo.focus-dev.cn/ajax/user/myinfo',
+            data: { a: 1, b: 2 },
+            complete: function (data) {
+                console.log(data);
+            }
+        });
+    };
+</script>
+<hr />
+
+
+<button onclick="fnPOST()">CROSS POST</button>
+<script>
+    var fnPOST = function () {
+        ajax({
+            url: 'http://api-zhibo.focus-dev.cn/ajax/user/myinfo',
+            type: 'POST',
+            data: { a: 1, b: 2 },
+            complete: function (data) {
+                console.log(data);
+            }
+        });
+    };
+</script>
+<hr />
+
+
+<button onclick="fnPOSTA()">POST JSON</button>
+<script>
+    var fnPOSTA = function () {
+        ajax({
+            url: 'http://api-zhibo.focus-dev.cn/ajax/user/myinfo',
+            type: 'POST',
+            contentType: 'application/json',
+            withCredentials: true,
+            data: { a: 1, b: 2 },
+            data: {
+                ids: [
+                    1000,
+                    1001
+                ],
+                b: [
+                    { a: 2 },
+                    { a: 3 }
+                ],
+                status: 2,
+                rejectReason: '测试审核'
+            },
+            complete: function (data) {
+                console.log(data);
+            }
+        });
+    };
+</script>
+<hr />
+
+
+<button onclick="fnWith()">WITH</button>
+<script>
+    var fnWith = function () {
+        ajax({
+            url: 'http://api-zhibo.focus-dev.cn/ajax/user/myinfo',
+            data: { a: 1, b: 2 },
+            withCredentials: true,
+            type: 'POST',
+            complete: function (data) {
+                console.log(data);
+            }
+        });
+    };
+</script>
+<hr />
+<hr />
+<hr />
+<button onclick="fnRequest()">REQUEST</button>
+<script>
+    var fnRequest = function () {
+        request(
+            'http://api-zhibo.focus-dev.cn/ajax/user/myinfo',
+            'GET',
+            {},
+            '',
+            true,
+            function (data) {
+                console.log(data);
+            }
+        );
+    };
+</script>
+<hr />
+
+
+<button onclick="fnRequestByIframe()">REQUEST IFRAME</button>
+<script>
+    var fnRequestByIframe = function () {
+        requestByIframe(
+            'http://api-zhibo.focus-dev.cn/ajax/user/myinfo',
+            'GET',
+            {},
+            '',
+            true,
+            function (data) {
+                console.log(data);
+            }
+        );
+    };
+</script>
+
+
+</body>
+</html>
+
+

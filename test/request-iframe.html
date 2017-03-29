@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>demo</title>
+</head>
+<body>
+
+
+<script src="../dist/request-iframe.js"></script>
+
+
+<button onclick="fnGet()">GET</button>
+<script>
+var fnGet = function () {
+    var url = 'http://changyan.sohu.com/api/2/comment/action?client_id=cyqARl5Jo&topic_id=648784014&action_type=1&comment_id=1222821976';
+    var method = 'GET';
+    var headers = {};
+    var body = '';
+    var credentials = true;
+    var complete = function (data) {
+        console.log(data);
+    };
+    ajax(url, method, headers, body, credentials, complete);
+};
+</script>
+<hr />
+
+
+<button onclick="fnPOST()">POST</button>
+<script>
+var fnPOST = function () {
+    var url = 'http://changyan.sohu.com/api/2/comment/action?client_id=cyqARl5Jo&topic_id=648784014&action_type=1&comment_id=1222821976';
+    var method = 'POST';
+    var headers = {};
+    var body = 'a=1&b=2';
+    var credentials = true;
+    var complete = function (data) {
+        console.log(data);
+    };
+    ajax(url, method, headers, body, credentials, complete);
+};
+</script>
+<hr />
+
+
+</body>
+</html>
+
+
